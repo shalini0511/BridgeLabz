@@ -37,38 +37,41 @@ namespace LineComparisonProblem
         {
             //calculating formula for finding length
             double sqrt = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
-            string value = Convert.ToString(Math.Round(sqrt, 2));
-            Console.WriteLine("length of line is:" + value);
-            InitializeArray.InsertingValue(value, i);
+            string val = Convert.ToString(Math.Round(sqrt, 2));
+            Console.WriteLine("length of line is:" +val);
+            InitializeArray.Data(val,i);
 
 
         }
     }
-        public class CheckEquality
+    public class CheckEquality
+    {
+        public void ComputeEquals()
         {
-            public void ComputeEquals()
-            {
-                if (InitializeArray.values[0].Equals(InitializeArray.values[1]) == true)
-                {
-                    Console.WriteLine(" Both line is equal");
 
-                }
-                else
-                {
+            if (InitializeArray.values[0].Equals(InitializeArray.values[1]) == true)
+
+            {
+                    Console.WriteLine(" Both line are same");
+            }
+            else
+            {
                     Console.WriteLine("both line is different");
-                }
+                    string comparing = ((InitializeArray.values[0]).CompareTo(InitializeArray.values[1]) > 0) ? "Line 1 is greater than line 2" : "Line 2 is greater than line 1";
+                    Console.WriteLine(comparing);
             }
         }
+    }
 
-        public static class InitializeArray
+    public static class InitializeArray
+    {
+        public static string[] values = new string[2];
+        public static void Data(string val, int index)
         {
-            public static string[] values = new string[2];
-            public static void InsertingValue(string val, int index)
-            {
-                values[index] = val;
-            }
+            values[index] = val;
+        }       
 
-        }
+    }
 
 
     
